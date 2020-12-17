@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -20,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RecyclerView recyclerView;
     ImageView imgProfile,imgShopping,imgHeart,imgGame,imgChat;
     Animation animScale;
+
+    private MetricsAdapter.MetricsItemClick metricsItemClick = metrics -> {
+        Log.d("xxx", "Item click: " + metrics.getmTitle());
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.addItemDecoration(new SpacesItemDecoration(spacingInPixels));
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         MetricsAdapter metricsAdapter = new MetricsAdapter(this,metricsList);
+        metricsAdapter.setMetricsItemClick(metricsItemClick);
         recyclerView.setAdapter(metricsAdapter);
 
 
@@ -49,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imgGame.setOnClickListener(this);
         imgChat.setOnClickListener(this);
 
+        animScale = AnimationUtils.loadAnimation(this,R.anim.scale);
     }
 
     private void initView() {
@@ -103,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setSelected(ImageView img) {
         img.setColorFilter(ContextCompat.getColor(getBaseContext(),R.color.red));
+        img.startAnimation(animScale);
     }
 
     private void unSelected(ImageView img) {
