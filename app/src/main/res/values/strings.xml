@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">CustomView</string>
+    <string name="tues_20_otc">TUES 20 OTC</string>
+    <string name="name">Hi, Nguyễn Thị Hằng</string>
+    <string name="health_score">Health Score</string>
+    <string name="weight_42_kg">Weight: 42 Kg</string>
+    <string name="height_1_65_m">Height: 1.65 m</string>
+    <string name="age_23">Age: 23</string>
+    <string name="body_status_thin">Body Status: Thin</string>
+    <string name="more">More</string>
+    <string name="metrics">Metrics</string>
+    <string name="heart_rate">HEART RATE</string>
+    <string name="_78">78</string>
+    <string name="beats_s">beats/s</string>
+    <string name="last_update_15h">last update 15h</string>
+
+
+    <string name="_78_beats_s">78 beats/s</string>
+</resources>
