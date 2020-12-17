@@ -1,24 +1,22 @@
 package hieu.vn.customview;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    List<Metrics> metricsList = new ArrayList<Metrics>();
+    List<Metrics> metricsList = new ArrayList<>();
     RecyclerView recyclerView;
     ImageView imgProfile,imgShopping,imgHeart,imgGame,imgChat;
     Animation animScale;
@@ -60,12 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview_matrics);
-        imgProfile = (ImageView) findViewById(R.id.img_profile);
-        imgShopping = (ImageView) findViewById(R.id.img_shopping);
-        imgHeart = (ImageView) findViewById(R.id.img_heart);
-        imgGame = (ImageView) findViewById(R.id.img_game);
-        imgChat = (ImageView) findViewById(R.id.img_chat);
+        recyclerView =  findViewById(R.id.recyclerview_matrics);
+        imgProfile =  findViewById(R.id.img_profile);
+        imgShopping = findViewById(R.id.img_shopping);
+        imgHeart = findViewById(R.id.img_heart);
+        imgGame = findViewById(R.id.img_game);
+        imgChat = findViewById(R.id.img_chat);
     }
 
     @Override
