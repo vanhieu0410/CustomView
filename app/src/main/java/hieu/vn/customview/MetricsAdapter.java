@@ -14,8 +14,8 @@ import java.util.List;
 
 public class MetricsAdapter extends RecyclerView.Adapter<MetricsAdapter.MyViewHolder> {
 
-    private Context mContext;
-    private List<Metrics> mData;
+    private final Context mContext;
+    private final List<Metrics> mData;
 
     public MetricsAdapter(Context mContext, List<Metrics> mData) {
         this.mContext = mContext;
@@ -25,16 +25,13 @@ public class MetricsAdapter extends RecyclerView.Adapter<MetricsAdapter.MyViewHo
     @NonNull
     @Override
     public MetricsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View view;
         LayoutInflater mInflater = LayoutInflater.from(mContext);
-        view = mInflater.inflate(R.layout.layout_item_metrics,parent,false);
+        View view = mInflater.inflate(R.layout.layout_item_metrics,parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MetricsAdapter.MyViewHolder holder, int position) {
-
         holder.lblTitleCard.setText(mData.get(position).getmTitle());
         holder.lblDescriptionCard.setText(mData.get(position).getmDescription());
         holder.lblLastUpdateCard.setText(mData.get(position).getmLastUpdate());
@@ -47,20 +44,19 @@ public class MetricsAdapter extends RecyclerView.Adapter<MetricsAdapter.MyViewHo
         return mData.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView lblTitleCard,lblNumber, lblDescriptionCard,lblLastUpdateCard;
         ImageView imgCard;
 
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            lblTitleCard = (TextView) itemView.findViewById(R.id.lbl_title_card);
-            lblDescriptionCard = (TextView) itemView.findViewById(R.id.lbl_description_card);
-            lblLastUpdateCard = (TextView) itemView.findViewById(R.id.lbl_last_update_card);
-            imgCard = (ImageView) itemView.findViewById(R.id.img_card);
-            lblNumber = (TextView) itemView.findViewById(R.id.lbl_num_description_card);
+            lblTitleCard = itemView.findViewById(R.id.lbl_title_card);
+            lblDescriptionCard = itemView.findViewById(R.id.lbl_description_card);
+            lblLastUpdateCard = itemView.findViewById(R.id.lbl_last_update_card);
+            imgCard = itemView.findViewById(R.id.img_card);
+            lblNumber = itemView.findViewById(R.id.lbl_num_description_card);
         }
     }
 
