@@ -1,152 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="3dp"
     tools:context=".MainActivity">
+
     <ImageView
         android:id="@+id/img_sun"
-        android:layout_marginTop="3dp"
-        android:layout_marginStart="30dp"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:src="@drawable/shape"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_start_end_main"
+        android:src="@drawable/day" />
 
     <TextView
         android:id="@+id/lbl_date"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginEnd="@dimen/margin_start_end_main"
         android:layout_toEndOf="@id/img_sun"
         android:fontFamily="@font/rubik_light"
-        android:textStyle="bold"
         android:text="@string/tues_20_otc"
         android:textColor="#D43A2D"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/lbl_name"
-        android:layout_width="wrap_content"
-        android:text="@string/name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#1A1613"
-        android:lineHeight="30dp"
-        android:fontFamily="@font/gilroy_extra_bold"
-        android:textSize="32sp"
-        android:layout_marginTop="9dp"
         android:layout_below="@id/lbl_date"
-        android:layout_marginStart="30dp"/>
+        android:layout_marginStart="@dimen/margin_start_end_main"
+        android:layout_marginEnd="@dimen/margin_start_end_main"
+        android:layout_marginTop="@dimen/margin_top_lbl_name"
+        android:fontFamily="@font/gilroy_extra_bold"
+        android:text="@string/name"
+        android:textColor="#1A1613"
+        android:textSize="32sp" />
 
     <RelativeLayout
         android:id="@+id/layout_health"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
         android:layout_below="@id/lbl_name"
-        android:layout_width="319dp"
-        android:layout_height="140dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/back_ground_shape"
-        >
+        android:layout_marginStart="@dimen/margin_start_end_main"
+        android:layout_marginTop="@dimen/margin_top_layout_heath"
+        android:layout_marginEnd="@dimen/margin_start_end_main"
+        android:background="@drawable/back_ground_shape">
+
         <ImageView
             android:id="@+id/img_avatar"
             android:layout_width="68dp"
             android:layout_height="74dp"
             android:layout_marginStart="13dp"
             android:layout_marginTop="21dp"
-            android:src="@drawable/image_avata"/>
+            android:src="@drawable/image_avata" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignStart="@id/img_avatar"
+            android:layout_alignBottom="@id/img_avatar"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="-2dp"
+            android:src="@drawable/oval" />
 
         <TextView
             android:id="@+id/lbl_healthScore"
-            android:layout_toEndOf="@id/img_avatar"
-            android:layout_marginStart="23dp"
-            android:text="@string/health_score"
-            android:layout_marginTop="19dp"
-            android:fontFamily="@font/gilroy_extra_bold"
-            android:textColor="#FFFFFFFF"
-            android:textSize="18sp"
-            android:textFontWeight="700"
-            android:lineHeight="24dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="19dp"
+            android:layout_toEndOf="@id/img_avatar"
+            android:fontFamily="@font/gilroy_extra_bold"
+            android:text="@string/health_score"
+            android:textColor="#FFFFFFFF"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/lbl_weight"
-            android:layout_below="@id/lbl_healthScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/img_avatar"
-            android:text="@string/weight_42_kg"
+            android:layout_below="@id/lbl_healthScore"
             android:layout_marginStart="23dp"
-            android:textSize="14sp"
-            android:lineHeight="24dp"
-            android:fontFamily="@font/gilroy_light"
-            android:textColor="#FFFFFFFF"
             android:layout_marginTop="5dp"
-            />
+            android:layout_toEndOf="@id/img_avatar"
+            android:fontFamily="@font/gilroy_light"
+            android:text="@string/weight_42_kg"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/lbl_height"
-            android:layout_below="@id/lbl_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/img_avatar"
-            android:text="@string/height_1_65_m"
+            android:layout_below="@id/lbl_weight"
             android:layout_marginStart="23dp"
-            android:textSize="14sp"
-            android:lineHeight="24dp"
-            android:textFontWeight="400"
-            android:fontFamily="@font/gilroy_light"
-            android:textColor="#FFFFFFFF"
             android:layout_marginTop="10dp"
-            />
+            android:layout_toEndOf="@id/img_avatar"
+            android:fontFamily="@font/gilroy_light"
+            android:text="@string/height_1_65_m"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/lbl_age"
-            android:layout_below="@id/lbl_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/img_avatar"
-            android:text="@string/age_23"
+            android:layout_below="@id/lbl_height"
             android:layout_marginStart="23dp"
-            android:textSize="14sp"
-            android:lineHeight="24dp"
-            android:fontFamily="@font/gilroy_light"
-            android:textColor="#FFFFFFFF"
             android:layout_marginTop="10dp"
-            />
+            android:layout_toEndOf="@id/img_avatar"
+            android:fontFamily="@font/gilroy_light"
+            android:lineHeight="24dp"
+            android:text="@string/age_23"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/lbl_body_status"
-            android:layout_below="@id/lbl_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/img_avatar"
-            android:text="@string/body_status_thin"
+            android:layout_below="@id/lbl_age"
             android:layout_marginStart="23dp"
-            android:textSize="14sp"
-            android:lineHeight="24dp"
-            android:fontFamily="@font/gilroy_light"
-            android:textColor="#FFFFFFFF"
             android:layout_marginTop="10dp"
-            />
+            android:layout_toEndOf="@id/img_avatar"
+            android:fontFamily="@font/gilroy_light"
+            android:text="@string/body_status_thin"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/lbl_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="17dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="7dp"
+            android:fontFamily="@font/rubik_light"
             android:text="@string/more"
             android:textColor="#FFFFFFFF"
             android:textSize="14sp"
-            android:fontFamily="@font/rubik_light"
-            android:textStyle="bold"
-            />
-
-
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <TextView
@@ -154,95 +151,63 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_health"
-        android:layout_marginStart="30dp"
-        android:text="@string/metrics"
+        android:layout_marginStart="@dimen/margin_start_metric"
+        android:layout_marginTop="@dimen/margin_top_lbl_metric"
         android:fontFamily="@font/gilroy_extra_bold"
-        android:textSize="20sp"
-        android:layout_marginTop="8dp"
-        android:lineHeight="30dp"
-        android:textFontWeight="700"
+        android:text="@string/metrics"
         android:textColor="#1A1613"
-        />
+        android:textSize="20sp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_below="@id/lbl_metrics"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_matrics"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation"
+        android:layout_below="@id/lbl_metrics"
+        android:layout_marginStart="@dimen/margin_start_end_main"
+        android:layout_marginEnd="@dimen/margin_start_end_main"
+         />
 
-        >
-
-        <androidx.recyclerview.widget.RecyclerView
-
-            android:id="@+id/recyclerview_matrics"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:padding="5dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-
-            />
-
-        <RelativeLayout
-            android:id="@+id/bottom_navigation"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-
-            android:background="#B4ECF3">
-
-            <ImageView
-                android:id="@+id/img_heart"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/health"
-                />
-            <ImageView
-                android:id="@+id/img_shopping"
-                android:layout_centerVertical="true"
-                android:src="@drawable/shopping"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_toStartOf="@id/img_heart"
-                android:layout_marginEnd="50dp"/>
-
-            <ImageView
-                android:id="@+id/img_profile"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/profile"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="35dp"/>
-
-            <ImageView
-                android:layout_centerVertical="true"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_toEndOf="@id/img_heart"
-                android:layout_marginStart="50dp"
-                android:src="@drawable/gamming"/>
-
-            <ImageView
-                android:id="@+id/img_chat"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/message"
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="35dp"/>
-
-
-        </RelativeLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:id="@+id/img_profile"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/profile" />
+        <ImageView
+            android:id="@+id/img_shopping"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/shopping" />
+        <ImageView
+            android:id="@+id/img_heart"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/health" />
+        <ImageView
+            android:id="@+id/img_game"
+            android:layout_weight="1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/game" />
+        <ImageView
+            android:id="@+id/img_chat"
+            android:layout_weight="1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/mess" />
+    </LinearLayout>
 
 </RelativeLayout>

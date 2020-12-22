@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_start_end_main">20dp</dimen>
+    <dimen name="margin_start_metric">30dp</dimen>
+    <dimen name="margin_top_lbl_name">10dp</dimen>
+    <dimen name="margin_top_layout_heath">15dp</dimen>
+    <dimen name="margin_top_lbl_metric">5dp</dimen>
+
+
+</resources>

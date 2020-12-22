@@ -1,5 +1,6 @@
 package hieu.vn.customview;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,9 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageView imgProfile,imgShopping,imgHeart,imgGame,imgChat;
     Animation animScale;
 
-    private MetricsAdapter.MetricsItemClick metricsItemClick = metrics -> {
-        Log.d("xxx", "Item click: " + metrics.getmTitle());
-    };
+    private  final MetricsAdapter.MetricsItemClick metricsItemClick = metrics ->
+            Log.d("xxx", "Item click: " + metrics.getmTitle());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         metricsList.add(new Metrics("SUGGEST MEAL", "345", "cal", "last update 55m", R.drawable.weight));
 
         initView();
-        int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.spacing);
-        recyclerView.addItemDecoration(new SpacesItemDecoration(spacingInPixels));
+
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         MetricsAdapter metricsAdapter = new MetricsAdapter(this,metricsList);
         metricsAdapter.setMetricsItemClick(metricsItemClick);
@@ -66,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imgChat = findViewById(R.id.img_chat);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

@@ -10,15 +10,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class MetricsAdapter extends RecyclerView.Adapter<MetricsAdapter.MyViewHolder> {
 
-    private Context mContext;
-    private List<Metrics> mListMetrics;
+    private final Context mContext;
+    private final List<Metrics> mListMetrics;
     MetricsItemClick metricsItemClick;
 
     public MetricsAdapter(Context mContext, List<Metrics> mListMetrics) {
@@ -29,7 +26,6 @@ public class MetricsAdapter extends RecyclerView.Adapter<MetricsAdapter.MyViewHo
     @NonNull
     @Override
     public MetricsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View view;
         LayoutInflater mInflater = LayoutInflater.from(mContext);
         view = mInflater.inflate(R.layout.layout_item_metrics, parent, false);
@@ -53,13 +49,13 @@ public class MetricsAdapter extends RecyclerView.Adapter<MetricsAdapter.MyViewHo
         this.metricsItemClick = metricsItemClick;
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView lblTitleCard;
-        private TextView lblNumber;
-        private TextView lblDescriptionCard;
-        private TextView lblLastUpdateCard;
-        private ImageView imgCard;
+        private final TextView lblTitleCard;
+        private final TextView lblNumber;
+        private final TextView lblDescriptionCard;
+        private final TextView lblLastUpdateCard;
+        private final ImageView imgCard;
         private Metrics metrics;
 
 
@@ -70,7 +66,7 @@ public class MetricsAdapter extends RecyclerView.Adapter<MetricsAdapter.MyViewHo
             lblDescriptionCard = itemView.findViewById(R.id.lbl_description_card);
             lblLastUpdateCard = itemView.findViewById(R.id.lbl_last_update_card);
             imgCard = itemView.findViewById(R.id.img_card);
-            lblNumber = itemView.findViewById(R.id.lbl_num_description_card);
+            lblNumber = itemView.findViewById(R.id.lbl_number);
 
             itemView.setOnClickListener(v -> {
                 metricsItemClick.onClick(metrics);

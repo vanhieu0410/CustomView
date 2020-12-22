@@ -16,4 +16,11 @@
 
 
     <string name="_78_beats_s">78 beats/s</string>
+    <string name="profile">Profile</string>
+    <string name="avatar">Avatar</string>
+    <string name="online">Online</string>
+    <string name="buy">Buy</string>
+    <string name="heath_importance">Heath Importance</string>
+    <string name="play_game">Play game</string>
+    <string name="make_a_conversation">Make a conversation</string>
 </resources>
