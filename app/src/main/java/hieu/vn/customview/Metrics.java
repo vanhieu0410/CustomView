@@ -1,12 +1,35 @@
 package hieu.vn.customview;
 
-public class Metrics {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Metrics implements Parcelable {
 
     private String mTitle;
     private String mNumber;
     private String mDescription;
     private String mLastUpdate;
     private int mImage;
+
+    protected Metrics(Parcel in) {
+        mTitle = in.readString();
+        mNumber = in.readString();
+        mDescription = in.readString();
+        mLastUpdate = in.readString();
+        mImage = in.readInt();
+    }
+
+    public static final Creator<Metrics> CREATOR = new Creator<Metrics>() {
+        @Override
+        public Metrics createFromParcel(Parcel in) {
+            return new Metrics(in);
+        }
+
+        @Override
+        public Metrics[] newArray(int size) {
+            return new Metrics[size];
+        }
+    };
 
     public String getmLastUpdate() {
         return mLastUpdate;
@@ -54,5 +77,19 @@ public class Metrics {
 
     public void setmDescription(String mDescription) {
         this.mDescription = mDescription;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mTitle);
+        dest.writeString(mNumber);
+        dest.writeString(mDescription);
+        dest.writeString(mLastUpdate);
+        dest.writeInt(mImage);
     }
 }

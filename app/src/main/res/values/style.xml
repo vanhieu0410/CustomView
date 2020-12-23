@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextPrimary">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/gilroy_extra_bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+    
+    <style name="TextSecond">
+        <item name="android:fontFamily">@font/gilroy_extra_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextThird">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/gilroy_light</item>
+    </style>
+
+    <style name="TextMore">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/rubik_light</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="ItemRecyclerTextFirst">
+        <item name="android:fontFamily">@font/gilroy_extra_bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="ItemRecyclerNumber">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/rubik_light</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="ItemRecyclerDescription">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/rubik_light</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="ItemRecyclerLastUpdate">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/gilroy_light</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+</resources>

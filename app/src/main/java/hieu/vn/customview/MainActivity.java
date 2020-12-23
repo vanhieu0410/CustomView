@@ -2,49 +2,62 @@ package hieu.vn.customview;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Parcelable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    List<Metrics> metricsList = new ArrayList<>();
-    RecyclerView recyclerView;
-    ImageView imgProfile,imgShopping,imgHeart,imgGame,imgChat;
-    Animation animScale;
+    private final List<Metrics> metricsList = new ArrayList<>();
+    private ImageView imgProfile,imgShopping,imgHeart,imgGame,imgChat;
+    private Animation animScale;
+    private TextView lblName;
 
-    private  final MetricsAdapter.MetricsItemClick metricsItemClick = metrics ->
-            Log.d("xxx", "Item click: " + metrics.getmTitle());
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //remove notification bar
-       // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_main);
 
+        initView();
         metricsList.add(new Metrics("HEART RATE","78" ,"beats/s", "last update 15h", R.drawable.heart2));
         metricsList.add(new Metrics("STEPS", "9,890","", "last update 3m", R.drawable.steps));
         metricsList.add(new Metrics("WATER", "750", "ml", "last update 20m", R.drawable.glass));
         metricsList.add(new Metrics("SUGGEST MEAL", "345", "cal", "last update 55m", R.drawable.weight));
 
-        initView();
+        //add fragment recyclerview
+        Fragment recyclerFragment = new RecyclerViewMainFragment();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_recycler_container, recyclerFragment,RecyclerViewMainFragment.class.toString())
+                .addToBackStack(null)
+                .commit();
 
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        MetricsAdapter metricsAdapter = new MetricsAdapter(this,metricsList);
-        metricsAdapter.setMetricsItemClick(metricsItemClick);
-        recyclerView.setAdapter(metricsAdapter);
+        //send list<Metric> to recyclerFragment
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList("list", (ArrayList<? extends Parcelable>) metricsList);
+        recyclerFragment.setArguments(bundle);
+
+        //add fragment health
+        Fragment healthFragment = new HealthFragment();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.layout_health, healthFragment, HealthFragment.class.toString())
+                .addToBackStack(null)
+                .commit();
+
 
 
         imgProfile.setOnClickListener(this);
@@ -57,12 +70,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        recyclerView =  findViewById(R.id.recyclerview_matrics);
         imgProfile =  findViewById(R.id.img_profile);
         imgShopping = findViewById(R.id.img_shopping);
         imgHeart = findViewById(R.id.img_heart);
         imgGame = findViewById(R.id.img_game);
         imgChat = findViewById(R.id.img_chat);
+        lblName = findViewById(R.id.lbl_name);
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -108,12 +121,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setSelected(ImageView img) {
-        img.setColorFilter(ContextCompat.getColor(getBaseContext(),R.color.red));
+        img.setColorFilter(ContextCompat.getColor(getBaseContext(),R.color.red_primary));
         img.startAnimation(animScale);
     }
 
     private void unSelected(ImageView img) {
         img.setColorFilter(ContextCompat.getColor(getBaseContext(),R.color.black));
+    }
+
+    public void changeTitle(Metrics metrics) {
+        lblName.setText(metrics.getmTitle());
     }
 
 }

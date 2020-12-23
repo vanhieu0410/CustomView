@@ -22,7 +22,7 @@
         android:layout_toEndOf="@id/img_sun"
         android:fontFamily="@font/rubik_light"
         android:text="@string/tues_20_otc"
-        android:textColor="#D43A2D"
+        android:textColor="@color/red_primary"
         android:textSize="12sp"
         android:textStyle="bold" />
 
@@ -34,12 +34,11 @@
         android:layout_marginStart="@dimen/margin_start_end_main"
         android:layout_marginEnd="@dimen/margin_start_end_main"
         android:layout_marginTop="@dimen/margin_top_lbl_name"
-        android:fontFamily="@font/gilroy_extra_bold"
         android:text="@string/name"
-        android:textColor="#1A1613"
-        android:textSize="32sp" />
+        style="@style/TextPrimary"
+         />
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/layout_health"
         android:layout_width="match_parent"
         android:layout_height="160dp"
@@ -47,104 +46,8 @@
         android:layout_marginStart="@dimen/margin_start_end_main"
         android:layout_marginTop="@dimen/margin_top_layout_heath"
         android:layout_marginEnd="@dimen/margin_start_end_main"
-        android:background="@drawable/back_ground_shape">
-
-        <ImageView
-            android:id="@+id/img_avatar"
-            android:layout_width="68dp"
-            android:layout_height="74dp"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="21dp"
-            android:src="@drawable/image_avata" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignStart="@id/img_avatar"
-            android:layout_alignBottom="@id/img_avatar"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="-2dp"
-            android:src="@drawable/oval" />
-
-        <TextView
-            android:id="@+id/lbl_healthScore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="19dp"
-            android:layout_toEndOf="@id/img_avatar"
-            android:fontFamily="@font/gilroy_extra_bold"
-            android:text="@string/health_score"
-            android:textColor="#FFFFFFFF"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/lbl_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/lbl_healthScore"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="5dp"
-            android:layout_toEndOf="@id/img_avatar"
-            android:fontFamily="@font/gilroy_light"
-            android:text="@string/weight_42_kg"
-            android:textColor="#FFFFFFFF"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/lbl_height"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/lbl_weight"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/img_avatar"
-            android:fontFamily="@font/gilroy_light"
-            android:text="@string/height_1_65_m"
-            android:textColor="#FFFFFFFF"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/lbl_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/lbl_height"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/img_avatar"
-            android:fontFamily="@font/gilroy_light"
-            android:lineHeight="24dp"
-            android:text="@string/age_23"
-            android:textColor="#FFFFFFFF"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/lbl_body_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/lbl_age"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/img_avatar"
-            android:fontFamily="@font/gilroy_light"
-            android:text="@string/body_status_thin"
-            android:textColor="#FFFFFFFF"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/lbl_more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="7dp"
-            android:fontFamily="@font/rubik_light"
-            android:text="@string/more"
-            android:textColor="#FFFFFFFF"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-    </RelativeLayout>
+        >
+    </FrameLayout>
 
     <TextView
         android:id="@+id/lbl_metrics"
@@ -153,20 +56,18 @@
         android:layout_below="@id/layout_health"
         android:layout_marginStart="@dimen/margin_start_metric"
         android:layout_marginTop="@dimen/margin_top_lbl_metric"
-        android:fontFamily="@font/gilroy_extra_bold"
         android:text="@string/metrics"
-        android:textColor="#1A1613"
-        android:textSize="20sp" />
+        android:textColor="@color/text_primary"
+        style="@style/TextSecond"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_matrics"
+    <FrameLayout
+        android:id="@+id/fragment_recycler_container"
+        android:layout_below="@id/lbl_metrics"
+        android:layout_above="@id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_navigation"
-        android:layout_below="@id/lbl_metrics"
         android:layout_marginStart="@dimen/margin_start_end_main"
-        android:layout_marginEnd="@dimen/margin_start_end_main"
-         />
+        android:layout_marginEnd="@dimen/margin_start_end_main"/>
 
     <LinearLayout
         android:id="@+id/bottom_navigation"

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_health"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_ground_shape"
+    tools:context=".HealthFragment">
+
+    <ImageView
+        android:id="@+id/img_avatar"
+        android:layout_width="@dimen/weight_height_image_item_recycler"
+        android:layout_height="@dimen/weight_height_image_item_recycler"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="21dp"
+        android:src="@drawable/avatar" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignStart="@id/img_avatar"
+        android:layout_alignBottom="@id/img_avatar"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="-2dp"
+        android:src="@drawable/oval" />
+
+    <TextView
+        android:id="@+id/lbl_healthScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="19dp"
+        android:layout_toEndOf="@id/img_avatar"
+        android:text="@string/health_score"
+        android:textColor="@color/white"
+        style="@style/TextSecond" />
+
+    <TextView
+        android:id="@+id/lbl_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_healthScore"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/img_avatar"
+        android:text="@string/weight_42_kg"
+        style="@style/TextThird"
+        />
+
+    <TextView
+        android:id="@+id/lbl_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_weight"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/img_avatar"
+        android:text="@string/height_1_65_m"
+        style="@style/TextThird"
+        />
+
+    <TextView
+        android:id="@+id/lbl_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_height"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/img_avatar"
+        android:text="@string/age_23"
+        style="@style/TextThird"
+        />
+
+    <TextView
+        android:id="@+id/lbl_body_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_age"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/img_avatar"
+        android:text="@string/body_status_thin"
+        style="@style/TextThird"
+        />
+
+    <TextView
+        android:id="@+id/lbl_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="7dp"
+        android:text="@string/more"
+        style="@style/TextMore" />
+
+</RelativeLayout>

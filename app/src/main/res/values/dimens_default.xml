@@ -5,6 +5,7 @@
     <dimen name="margin_top_lbl_name">10dp</dimen>
     <dimen name="margin_top_layout_heath">15dp</dimen>
     <dimen name="margin_top_lbl_metric">5dp</dimen>
+    <dimen name="weight_height_image_item_recycler">70dp</dimen>
 
 
 </resources>

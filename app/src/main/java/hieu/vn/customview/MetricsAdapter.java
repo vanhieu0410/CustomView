@@ -1,25 +1,21 @@
 package hieu.vn.customview;
 
-import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class MetricsAdapter extends RecyclerView.Adapter<MetricsAdapter.MyViewHolder> {
 
-    private final Context mContext;
     private final List<Metrics> mListMetrics;
     MetricsItemClick metricsItemClick;
 
-    public MetricsAdapter(Context mContext, List<Metrics> mListMetrics) {
-        this.mContext = mContext;
+    public MetricsAdapter( List<Metrics> mListMetrics) {
         this.mListMetrics = mListMetrics;
     }
 
@@ -27,7 +23,7 @@ public class MetricsAdapter extends RecyclerView.Adapter<MetricsAdapter.MyViewHo
     @Override
     public MetricsAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        LayoutInflater mInflater = LayoutInflater.from(mContext);
+        LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
         view = mInflater.inflate(R.layout.layout_item_metrics, parent, false);
         return new MyViewHolder(view, metricsItemClick);
     }
@@ -68,10 +64,7 @@ public class MetricsAdapter extends RecyclerView.Adapter<MetricsAdapter.MyViewHo
             imgCard = itemView.findViewById(R.id.img_card);
             lblNumber = itemView.findViewById(R.id.lbl_number);
 
-            itemView.setOnClickListener(v -> {
-                metricsItemClick.onClick(metrics);
-                Log.d("xxx","metric in adapter " + metrics.getmTitle());
-            });
+            itemView.setOnClickListener(v -> metricsItemClick.onClick(metrics));
         }
 
         public void bindDataMetrics(Metrics metrics) {
