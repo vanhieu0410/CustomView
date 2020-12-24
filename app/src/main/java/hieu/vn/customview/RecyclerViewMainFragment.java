@@ -1,5 +1,6 @@
 package hieu.vn.customview;
 
+import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,32 +13,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class RecyclerViewMainFragment extends Fragment {
+public class RecyclerViewMainFragment extends Fragment implements MyCallback {
     private RecyclerView recyclerView;
     private List<Metrics> metricsList = new ArrayList<>();
+    MyCallback myCallback;
 
-    MyCallback callback;
 
     private final MetricsAdapter.MetricsItemClick metricsItemClick = new MetricsAdapter.MetricsItemClick() {
         @Override
         public void onClick(Metrics metrics) {
-            callback.callbackCall(metrics);
-            Log.d("xxx","item click on recyclerview: " + metrics.getmTitle());
-            ((MainActivity)getActivity()).changeTitle(metrics);
+            Log.d("xxx", "item click on recyclerview: " + metrics.getmTitle());
+            ((MainActivity) Objects.requireNonNull(getActivity())).changeTitle(metrics);
             if (getFragmentManager() != null) {
-                ((HealthFragment)getFragmentManager().findFragmentByTag(HealthFragment.class.toString())).setImgAvatar(metrics);
-                ((HealthFragment)getFragmentManager().findFragmentByTag(HealthFragment.class.toString())).setLblDetail(metrics);
-
+                ((HealthFragment) getFragmentManager().findFragmentByTag(HealthFragment.class.toString())).setImgAvatar(metrics);
+                ((HealthFragment) getFragmentManager().findFragmentByTag(HealthFragment.class.toString())).setLblDetail(metrics);
+//                ((HealthFragment) getFragmentManager().findFragmentByTag(HealthFragment.class.toString())).setListData(metricsList);
             }
         }
     };
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        myCallback = ((MyCallback) context);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -67,5 +72,13 @@ public class RecyclerViewMainFragment extends Fragment {
             recyclerView.setAdapter(metricsAdapter);
     }
 
+    @Override
+    public List<Metrics> getListData() {
+        return metricsList;
+    }
 
+    @Override
+    public void setListData(List<Metrics> list) {
+//        healthFragment.setListData(metricsList);
+    }
 }

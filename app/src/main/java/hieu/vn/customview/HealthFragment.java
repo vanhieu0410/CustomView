@@ -1,22 +1,36 @@
 package hieu.vn.customview;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 
 public class HealthFragment extends Fragment {
     private ImageView imgAvatar;
     private TextView lblDetail;
 
+    private List<Metrics> listData;
+    RecyclerViewMainFragment recyclerViewMainFragment;
+    MyCallback myCallback;
+
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        myCallback = ((MyCallback) context);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +49,9 @@ public class HealthFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
+
+       listData = myCallback.getListData();
+        Log.d("xxx"," " + listData.get(1).getmTitle());
     }
 
     private void initView(View view) {
@@ -49,4 +66,6 @@ public class HealthFragment extends Fragment {
     public void setLblDetail(Metrics metrics) {
         lblDetail.setText(metrics.getmTitle());
     }
+
+
 }

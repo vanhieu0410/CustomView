@@ -17,11 +17,13 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,MyCallback {
     private final List<Metrics> metricsList = new ArrayList<>();
     private ImageView imgProfile,imgShopping,imgHeart,imgGame,imgChat;
     private Animation animScale;
     private TextView lblName;
+
+    RecyclerViewMainFragment recyclerViewMainFragment;
 
 
 
@@ -133,4 +135,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lblName.setText(metrics.getmTitle());
     }
 
+    @Override
+    public List<Metrics> getListData() {
+        return metricsList;
+    }
+
+    @Override
+    public void setListData(List<Metrics> list) {
+
+    }
 }

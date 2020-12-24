@@ -1,5 +1,8 @@
 package hieu.vn.customview;
 
+import java.util.List;
+
 public interface MyCallback {
-    void callbackCall(Metrics metrics);
+    List<Metrics> getListData();
+    void setListData(List<Metrics> list);
 }
